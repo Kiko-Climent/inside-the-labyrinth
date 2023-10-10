@@ -3,9 +3,12 @@ import sys
 
 def intro():
     """
-    Introcucing the game and request the user's name
+    Introducing the game and request the user's name
     """
-    print("..you just wake up,\n its dark in here and you realize that you are inside of a Labyrinth")
+    print("    @@@@@@@@@@@@@@@@@@@@    ")
+    print("@@@ INSIDE THE LABYRINTH @@@")
+    print("    @@@@@@@@@@@@@@@@@@@@    ")
+    print("...you just wake up,\n its dark in here and you realize that you are inside of a Labyrinth...")
     # Intro message
     # User's name stored in varable 'name'
     name = input("What's your name?: ")
@@ -21,9 +24,13 @@ def main():
 
     if ready.lower() == "yes":
         print("Great! Let's start the adventure.")
-
-    else:
+        input("Press Enter to beggin...")
+    
+    elif ready.lower() == "no":
         print("Definitely, you're not the right person for this.")
+    
+    else:
+        print("Wrong character")
 
 if __name__ == "__main__":
     main()
