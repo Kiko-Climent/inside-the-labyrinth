@@ -37,9 +37,28 @@ def first_challenge(user_name):
         snakes_challenge(user_name)
     elif choice.lower() == "dragon":
         print("\nYou get in a room and you find a huge Dragon")
+        dragons_challenge(user_name)
     else:
         print("\nInvalid choice, please try again")
         choice = input("Which door do you want to open? (snake/dragon): ")
+
+def dragons_challenge(user_name):
+    print(f"\nIt's your luky day {user_name}, the dragon is sleeping")
+    print("\nThere's a long corridor in this room and a shield on the wall")
+    choice = input("Do you want to take the shield? (yes/no): ")
+    if choice.lower() == "yes":
+            print("\nNow you walk with a shield")
+            input("\n Press ENTER to continue")
+            print("\nThe dragon wakes up and starts breathing fire")
+            input("\n Press ENTER to use the shield")
+            print("\nGreat! you stop the fire\nunfortunately the shield is useless now\nbut you save your life")
+            input("\n Press ENTER to cross the long corridor")
+    elif choice.lower() == "no":
+            input("\n Press ENTER to continue")
+            print("\nThe dragon wakes up and starts breathing fire")
+            print("\nYou should had take the shield amigo, GAME OVER")
+
+
 
 def snakes_challenge(user_name):
     print("\nyou can either: ")
@@ -110,10 +129,9 @@ def magician_challenge(user_name):
                 # Magic door needs to be added
 
             else:
-                print(f"\nOh no! {new_name}, you lose, I hope you like snakes")
+                print(f"\nOh no! {new_name}, you loose, i hope you like fire young boy")
                 input("\n Press ENTER to continue")
-                print("\nThe Magician has brought you again to the snake's room")
-                snakes_challenge(user_name)
+                print("\nThe Magician has brought you to the dragon's room")
 
         elif choice.lower() == "pass":
             door_logic(user_name)
