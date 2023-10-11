@@ -12,10 +12,19 @@ def intro():
     name = input("What's your name?: ") 
     return name
 
+def get_valid_input(options, prompt="Please enter a valid choice: "): # Add function for invalid inputs
+    while True:
+        user_input = input(prompt).lower()
+        if user_input in options:
+            return user_input
+        else:
+            print("\nInvalid Choice Amigo")
+
 def main():
     name = intro()
     print(f'\nOk, {name}, how are you gonna get out from here?')
-    ready = input("Are you ready for this? (yes/no): ")
+    ready_options = ['yes','no']
+    ready = get_valid_input(ready_options, "Are you ready for this? (yes/no): ")
 
     if ready.lower() == "yes":
         print("\nGreat! Let's start the adventure.")
@@ -24,7 +33,7 @@ def main():
     elif ready.lower() == "no":
         print("\nDefinitely, you're not the right person for this.")
     else:
-        print("Wrong answer amigo\n")
+        invalid_input()
 
 def first_challenge(user_name):
     print("\nYou find yourself in a room with 2 different doors..")
@@ -57,6 +66,11 @@ def dragons_challenge(user_name):
             input("\n Press ENTER to continue")
             print("\nThe dragon wakes up and starts breathing fire")
             print("\nYou should had take the shield amigo, GAME OVER")
+    else:
+        print("\nInvalid choice, please try again")
+        input("Do you want to take the shield? (yes/no): ")
+
+
 
 
 
