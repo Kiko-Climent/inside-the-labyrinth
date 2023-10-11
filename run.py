@@ -93,10 +93,10 @@ def magician_challenge(user_name): #Magician function
         choice = input("play/pass: " )
 
         if choice.lower() == "play":
-            print("\n The magician gives you a daze\n")
+            print("\nThe magician gives you a daze\n")
             print("\n 'OK, let's do that'")
-            print("Throw the daze, if your score is 4 or more i will open a magic door\n wich will bring closer to the exit")
-            print("But, if you score less than 4,..well, you won't like that young boy")
+            print(" Throw the daze, if your score is 4 or more i will open a magic door\n wich will bring closer to the exit")
+            print(" But, if you score less than 4,..well, you won't like that young boy")
             input("\nPress ENTER to roll the dice...")
 
             dice_roll = random.randint(1, 6)
@@ -104,19 +104,36 @@ def magician_challenge(user_name): #Magician function
 
             if dice_roll >= 4:
                 print(f"\n CONGRATULATIONS {new_name}, let me open that magic door for you")
-            
+                # Magig door needs to be added
+
             else:
-                print(f"\n Oh no! {new_name}, you loose, i hope you like snakes")
-                snakes_challenge(user_name)
+                print(f"\nOh no! {new_name}, you loose, i hope you like snakes")
+                input("\n Press ENTER to continue")
+                print("\nThe Magigian has brought you again to the snake's room")
+                snakes_challenge(user_name) # Not sure about that
 
-        elif choice.lower() == door:
-            print("\n The Magician steps aside and opens the door for you")
-            print("\n 'Have a nice journey' says the Magician")
+
+        # ALGO FALLA AQUI !! :/:/:/
+    elif choice.lower() == "door":
+        print("\nThe Magician steps aside and opens the door for you")
+        print("\n'Have a nice journey' says the Magician")
+        print("\nYou get into another room, there you find 2 different paths\nIt's time to make up your mind again..")
+        choice = input("\nWhere do you want to go? : (left/right): ")
+
+        if choice.lower() == "left":
+            input("\n Press ENTER to continue")
+            print("You took the longest way 'amigo'")
+            input("\n Press again ENTER to continue")
+            print("")
+            
         
-        else:
-            print("\n Invalid choice, Please try again")
 
-def 
+
+    else:
+        print("\n Invalid choice, Please try again")
+
+
+    
 
 
 
