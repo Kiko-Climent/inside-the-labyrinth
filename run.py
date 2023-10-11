@@ -8,10 +8,10 @@ def intro():
     """
     Introducing the game and request the user's name
     """
-    print(f"{Fore.MAGENTA}    @@@@@@@@@@@@@@@@@@@@    ")
+    print("    @@@@@@@@@@@@@@@@@@@@    ")
     print("@@@ INSIDE THE LABYRINTH @@@")
     print("    @@@@@@@@@@@@@@@@@@@@    ")
-    print("...you just wake up,\n its dark in here and you realize that you are inside of a Labyrinth...")
+    print("\n...you just wake up,\n\n its dark in here and you realize that you are inside of a Labyrinth...")
     """
     Intro message
     User's name stored in varable 'name'
@@ -26,20 +26,20 @@ def main(): # Main function of the game
     ready = input("Are you ready for this? (yes/no): ") # Call the first challenge function
 
     if ready.lower() == "yes":
-        print("Great! Let's start the adventure.")
-        input("Press Enter to beggin...")
+        print("\nGreat! Let's start the adventure.")
+        input("Press ENTER to beggin...")
         first_challenge(name)
     
     elif ready.lower() == "no":
-        print("Definitely, you're not the right person for this.")
+        print("\nDefinitely, you're not the right person for this.")
     
     else:
         print("Wrong answer amigo\n")
 
 def first_challenge(user_name): # Snake and Dragon function
     print("\nYou find yourself in a room with 2 different doors..")
-    print("\n The first one has a shield with the drawing of a snake hanging over it,")
-    print("\n while the second one also displays a similar door with a shield featuring a dragon.")
+    print("\nThe first one has a shield with the drawing of a snake hanging over it,")
+    print("\nwhile the second one also displays a similar door with a shield featuring a dragon.")
     choice = input("\nWhich door do you want to open? (snake/dragon): ")
 
     if choice.lower() == "snake":
@@ -68,10 +68,11 @@ def snakes_challenge(user_name): #Snake function
         choice = input("What do you want to do? (fight/run): ")
 
 
-
-
-
 def magician_challenge(user_name): #Magician function
+    """ 
+    This Function represents the interaction of the user with a magician with multiple options,
+    besides of choosing between different answers, instance the user for a little gambling
+    """
     print("What do you want to do now amigo?") 
     print("Talk to the magician or open the door?: ")
     choice = input("(talk/door): ")
@@ -107,6 +108,16 @@ def magician_challenge(user_name): #Magician function
             else:
                 print(f"\n Oh no! {new_name}, you loose, i hope you like snakes")
                 snakes_challenge(user_name)
+
+        elif choice.lower() == door:
+            print("\n The Magician steps aside and opens the door for you")
+            print("\n 'Have a nice journey' says the Magician")
+        
+        else:
+            print("\n Invalid choice, Please try again")
+
+def 
+
 
 
 
