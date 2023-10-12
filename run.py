@@ -204,9 +204,34 @@ def even_odd_challenge(user_name):
         print(f"\nYou lose. The total was {total_fingers}, which is not {user_choice}.")
         print("GAME OVER")
 
+def last_challenge(user_name):
+    print("\nYou made it, you are almost there amigo")
+    print("You find yourself in a room, there's an iron door")
+    print("and 5 keys hanging on the wall.")
+    print("\nYou have 2 chances to open that door")
+    print("but only 1 of those keys open it")
+    print("\nIf you open it you'll be free")
+    print("but if you don't, you'll get locked in that room forever\n")
 
+    attempts = 0
 
-
+    while attempts < 2:
+        user_choice = get_valid_input(["key1", "key2", "key3", "key4", "key5"], "Choose 'key1', 'key2', 'key3', 'key4', 'key5': ")
+        
+        # Check if the chosen key is correct
+        if user_choice == "key3":
+            print("\nCongratulations! You've chosen the correct key.")
+            print("You've successfully opened the door and escaped the labyrinth!")
+            return  # Exit the function, the game is won
+        
+        else:
+            print("\nWrong choice! The door remains locked.")
+            attempts += 1
+            if attempts < 2:
+                print(f"You have {2 - attempts} attempt(s) left.")
+            else:
+                print("You've used up all your attempts. You are now trapped in the room forever.")
+                return  # Exit the function, the game is lost
 
 def snakes_challenge(user_name):
     print("you can either: ")
@@ -221,7 +246,6 @@ def snakes_challenge(user_name):
         print("\nYou leave the sword behind but you also save your life")
         print("\nYou pass a long corridor..\nyou find another door and a magician next to it.")
         magician_challenge(user_name)
-
 
 def door_logic(user_name):
     print("\nThe Magician steps aside and opens the door for you")
@@ -276,7 +300,10 @@ def magician_challenge(user_name):
 
             if dice_roll >= 4:
                 print(f"\n CONGRATULATIONS {new_name}, let me open that magic door for you")
-                # Magic door needs to be added
+                print("The Magician uses his power to open a magic door")
+                print("that will bring you straigt to the last challenge")
+                input("\nPress ENTER to face the final challenge")
+                last_challenge(user_name)
 
             else:
                 print(f"\nOh no! {new_name}, you loose, i hope you like fire young boy")
