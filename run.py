@@ -68,7 +68,7 @@ def dragons_challenge(user_name):
             print("\nYou should had take the shield amigo, GAME OVER")
 
 def jester_challenge(user_name):
-    print("\nAt the end of the corridor you find a Jester chained to the wall")
+    print("\nAlmost at the end of the corridor you find a Jester chained to the wall")
     input("\nPress ENTER to talk to the Jester")
     print("\n'Hi!, who are you amigo?, and why are you bound to those chains?'")
     input("\nPress ENTER to listen the Jester")
@@ -79,7 +79,7 @@ def jester_challenge(user_name):
     input("\nPress ENTER to listen the Jester")
     print("\n'Ok, at the end of the corridor you'll find 2 doors,\nonly one of them will bring you closer to the exit'")
     print("\n'The other one will bring you to death'replies the Jester with an anoying smile")
-    print("\n'I can tell which one is the right one, but for that you have to play a game with me")
+    print("\n'I can tell you which one is the right one, but for that you have to play a game with me")
     input("\nPress ENTER to reply the Jester")
     print("\n'Ok, i guess i have nothing to loose'")
     input("Press ENTER to discover the game")
@@ -89,18 +89,52 @@ def jester_challenge(user_name):
     # Add Rock, Paper, Scissors game
     import random
 
-    choices = ["rock","paper","scissors"]
-    jester_choice = random.choice(choices)
-    user_choice = get_valid_input(choices, "\nChoose: rock, paper, or scissors: ").lower()
-    if user_choice:
-        print(f"\nYou chose {user_choice}, and the Jester chose {jester_choice}")
+    choices = ["rock", "paper", "scissors"]
+     
+    while True:  # Loop in case of a Tie
+        jester_choice = random.choice(choices)
+        user_choice = get_valid_input(choices, "\nChoose: rock, paper, or scissors: ").lower()
 
-        if user_choice == jester_choice:
-            print("\nIt's a tie!")
-        elif (user_choice == "rock" and jester_choice == "scissors") or (user_choice == "scissors" and jester_choice == "paper") or (user_choice == "paper" and jester_choice == "rock"):
-            print("\nYou win!")
-        else:
-            print("\nYou lose! The Jester is a tricky one.")
+        if user_choice:
+            print(f"\nYou chose {user_choice}, and the Jester chose {jester_choice}")
+
+            if user_choice == jester_choice:
+                print("\nIt's a tie!")
+                continue  # Keep the loop to try again
+
+
+            elif (user_choice == "rock" and jester_choice == "scissors") or (user_choice == "scissors" and jester_choice == "paper") or (user_choice == "paper" and jester_choice == "rock"):
+                print("\nYou win!")
+                print("\nOk mate,once you cross the corridor you have to open the door [2]")
+                input("\nPress ENTER to cross the corridor")
+                numbered_doors_chalenge(user_name)
+                break
+
+
+            else:
+                print("\nYou lose! The Jester is a tricky one.")
+                print("\nHa Ha Ha Ha, good luck with the labyrinth mate, you will need it")
+                input("\nPress ENTER to cross the corridor")
+                numbered_doors_chalenge(user_name)
+                break
+
+# Add numbered options challenge
+def numbered_doors_chalenge(user_name):
+    print("\nFinally you made it to get to the end of the corridor")
+    print("\nYou find now two doors, the first one with a number [1] on it")
+    print("\nThe second one with a number [2] on it")
+    print("\nTime to choose again")
+    door_option = ["1", "2"]
+    choice = get_valid_input(door_option, "\nWhich door do you want to open? ([1]/[2]): ")
+
+    if choice == "1":
+        print("\nYou opened the door [1], its completely dark")
+        input("\nPress ENTER get in")
+        print("Upon entering, there is a leap into the void, and you fall. GAME OVER")
+    
+    elif choice == "2":
+        print("\nYou opened the door [2], its completely dark")
+
 
 
 
