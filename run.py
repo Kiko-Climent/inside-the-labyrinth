@@ -60,11 +60,48 @@ def dragons_challenge(user_name):
             input("\n Press ENTER to use the shield")
             print("\nGreat! you stop the fire\nunfortunately the shield is useless now\nbut you save your life")
             input("\n Press ENTER to cross the long corridor")
-            
+            jester_challenge(user_name)
+
     elif choice.lower() == "no":
             input("\n Press ENTER to continue")
             print("\nThe dragon wakes up and starts breathing fire")
             print("\nYou should had take the shield amigo, GAME OVER")
+
+def jester_challenge(user_name):
+    print("\nAt the end of the corridor you find a Jester chained to the wall")
+    input("\nPress ENTER to talk to the Jester")
+    print("\n'Hi!, who are you amigo?, and why are you bound to those chains?'")
+    input("\nPress ENTER to listen the Jester")
+    print("\n'Hi,well..my name doesnt matter and the reason i'm here..\nthat's a long story' says the Jester")
+    print("\n'I guess you are looking how to get out from here, right?'")
+    input("\nPress ENTER to answer the Jester")
+    print("\n'Yes please, that would be very helpful'")
+    input("\nPress ENTER to listen the Jester")
+    print("\n'Ok, at the end of the corridor you'll find 2 doors,\nonly one of them will bring you closer to the exit'")
+    print("\n'The other one will bring you to death'replies the Jester with an anoying smile")
+    print("\n'I can tell which one is the right one, but for that you have to play a game with me")
+    input("\nPress ENTER to reply the Jester")
+    print("\n'Ok, i guess i have nothing to loose'")
+    input("Press ENTER to discover the game")
+    print("\n'Sweet mate, let's play rock-paper-scissors, i guess you know how, right?'")
+    input("\nPress ENTER to play")
+
+    # Add Rock, Paper, Scissors game
+    import random
+
+    choices = ["rock","paper","scissors"]
+    jester_choice = random.choice(choices)
+    user_choice = get_valid_input(choices, "\nChoose: rock, paper, or scissors: ").lower()
+    if user_choice:
+        print(f"\nYou chose {user_choice}, and the Jester chose {jester_choice}")
+
+        if user_choice == jester_choice:
+            print("\nIt's a tie!")
+        elif (user_choice == "rock" and jester_choice == "scissors") or (user_choice == "scissors" and jester_choice == "paper") or (user_choice == "paper" and jester_choice == "rock"):
+            print("\nYou win!")
+        else:
+            print("\nYou lose! The Jester is a tricky one.")
+
 
 
 def snakes_challenge(user_name):
