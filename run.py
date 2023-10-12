@@ -130,11 +130,30 @@ def numbered_doors_chalenge(user_name):
     if choice == "1":
         print("\nYou opened the door [1], its completely dark")
         input("\nPress ENTER get in")
-        print("Upon entering, there is a leap into the void, and you fall. GAME OVER")
+        print("Upon entering, there is a leap into the void, and you fall. GAME OVER.")
     
     elif choice == "2":
         print("\nYou opened the door [2], its completely dark")
+        input("\nPress ENTER get in")
+        print("\nOnce you enter, a light turns on, illuminating the entire room,")
+        print("\nnow you see two paths, one going upstairs another one going downstairs")
+        path_options = ["up","down"]
+        choice = get_valid_input(path_options, "\nWhich one are taking amigo? (up/down)")
 
+        if choice.lower() == "up":
+            even_odd_challenge(user_name)
+
+        elif choice.lower() == "down":
+            print("\nYou go downstairs")
+            print("\nAnother dragon is waiting for you")
+            input("\nPress ENTER to continue")
+            print("\nSaddly this time you have no shield, flames everywhere")
+            print("\nGAME OVER")
+            
+
+def even_odd_challenge(user_name):
+    print("\nYou follow the stairs and you get into another room")
+    print("\nInside the room there's a guy")              
 
 
 
