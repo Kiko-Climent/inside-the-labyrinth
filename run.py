@@ -3,7 +3,7 @@ import sys
 from colorama import Fore, Style, init, deinit
 
 init()
-
+# Add introduction function
 def intro():
     print("    @@@@@@@@@@@@@@@@@@@@    ")
     print("@@@ INSIDE THE LABYRINTH @@@")
@@ -12,7 +12,8 @@ def intro():
     name = input("What's your name?: ") 
     return name
 
-def get_valid_input(options, prompt="Please enter a valid choice: "): # Add function for invalid inputs
+# Add function to control all the invalid inputs
+def get_valid_input(options, prompt="Please enter a valid choice: "): 
     while True:
         user_input = input(prompt).lower()
         if user_input in options:
@@ -32,14 +33,13 @@ def main():
         first_challenge(name)
     elif ready.lower() == "no":
         print("\nDefinitely, you're not the right person for this.")
-    else:
-        invalid_input()
 
 def first_challenge(user_name):
     print("\nYou find yourself in a room with 2 different doors..")
     print("\nThe first one has a shield with the drawing of a snake hanging over it,")
     print("\nwhile the second one also displays a similar door with a shield featuring a dragon.")
-    choice = input("\nWhich door do you want to open? (snake/dragon): ")
+    door_options = ["snake", "dragon"]
+    choice = get_valid_input(door_options, "\nWhich door do you want to open? (snake/dragon): ")
 
     if choice.lower() == "snake":
         print("\nYou get into a room full of snakes,\nyou also see a sword hanging on the wall.")
@@ -47,14 +47,12 @@ def first_challenge(user_name):
     elif choice.lower() == "dragon":
         print("\nYou get in a room and you find a huge Dragon")
         dragons_challenge(user_name)
-    else:
-        print("\nInvalid choice, please try again")
-        choice = input("Which door do you want to open? (snake/dragon): ")
 
 def dragons_challenge(user_name):
     print(f"\nIt's your luky day {user_name}, the dragon is sleeping")
     print("\nThere's a long corridor in this room and a shield on the wall")
-    choice = input("Do you want to take the shield? (yes/no): ")
+    shield_options = ["yes", "no"]
+    choice = get_valid_input(shield_options, "Do you want to take the shield? (yes/no): ")
     if choice.lower() == "yes":
             print("\nNow you walk with a shield")
             input("\n Press ENTER to continue")
@@ -62,56 +60,51 @@ def dragons_challenge(user_name):
             input("\n Press ENTER to use the shield")
             print("\nGreat! you stop the fire\nunfortunately the shield is useless now\nbut you save your life")
             input("\n Press ENTER to cross the long corridor")
+            
     elif choice.lower() == "no":
             input("\n Press ENTER to continue")
             print("\nThe dragon wakes up and starts breathing fire")
             print("\nYou should had take the shield amigo, GAME OVER")
-    else:
-        print("\nInvalid choice, please try again")
-        input("Do you want to take the shield? (yes/no): ")
-
-
-
 
 
 def snakes_challenge(user_name):
     print("\nyou can either: ")
-    print("\n Take the sword and fight the snakes, ")
-    print("\n or run away leaving the sword behind ")
-    choice = input("\nWhat do you want to do? (fight/run): ")
+    print("\nTake the sword and fight the snakes,")
+    print("\nor run away leaving the sword behind ")
+    fight_options = ["fight", "run"]
+    choice = get_valid_input(fight_options, "\nWhat do you want to do? (fight/run): ")
 
     if choice.lower() == "fight":
-        print("\n Unfortunately, there are too many snakes and you get bitten. GAME OVER.")
+        print("\nUnfortunately, there are too many snakes and you get bitten. GAME OVER.")
     elif choice.lower() == "run":
-        print("\n You leave the sword behind but you also save your life")
-        print("\n You pass a long corridor..\nyou find another door and a magician next to it.")
+        print("\nYou leave the sword behind but you also save your life")
+        print("\nYou pass a long corridor..\nyou find another door and a magician next to it.")
         magician_challenge(user_name)
-    else:
-        print("\nInvalid choice, please try again")
-        choice = input("What do you want to do? (fight/run): ")
 
 
 def door_logic(user_name):
     print("\nThe Magician steps aside and opens the door for you")
     print("\n'Have a nice journey' says the Magician")
     print("\nYou get into another room, there you find 2 different paths\nIt's time to make up your mind again..")
-    choice = input("\nWhere do you want to go? : (left/right): ")
+    door_options = ["left", "right"]
+    choice = get_valid_input(door_options, "\nWhere do you want to go? : (left/right): ")
 
     if choice.lower() == "left":
-        input("\n Press ENTER to continue")
-        print("You took the longest way 'amigo'")
-        input("\n Press again ENTER to continue")
+        input("\nPress ENTER to continue")
+        print("\n You took the longest way 'amigo'")
+        input("\nPress again ENTER to continue")
         print("")
-    else:
-        print("\nInvalid choice, please try again")
-        door_logic(user_name)
+    elif choice.lower() == "right":
+        print("\n")
+       
 
 def magician_challenge(user_name):
     talked_to_magician = False
 
     print("What do you want to do now amigo?") 
     print("Talk to the magician or open the door?: ")
-    choice = input("(talk/door): ")
+    magician_options = ["talk", "door"]
+    choice = get_valid_input(magician_options, "(talk/door): ")
 
     if choice.lower() == "talk":
         print("\n 'Who are you young boy?' asks the magician")
@@ -126,10 +119,11 @@ def magician_challenge(user_name):
         print(f"\n ok {new_name}, I guess you don't like the labyrinth, right?")
         print("\n I can help you to get out from here")
         print("\n Do you want to play a little game with me?")
-        choice = input("play/pass: " )
+        play_options = ["play", "pass"]
+        choice = get_valid_input(play_options, "play/pass: " )
 
         if choice.lower() == "play":
-            print("\nThe magician gives you a daze\n")
+            print("\nThe magician gives you a dice\n")
             print("\n 'OK, let's do that'")
             print(" Throw the daze, if your score is 4 or more I will open a magic door\n which will bring you closer to the exit")
             print(" But, if you score less than 4,..well, you won't like that young boy")
@@ -146,6 +140,7 @@ def magician_challenge(user_name):
                 print(f"\nOh no! {new_name}, you loose, i hope you like fire young boy")
                 input("\n Press ENTER to continue")
                 print("\nThe Magician has brought you to the dragon's room")
+                dragons_challenge(user_name)
 
         elif choice.lower() == "pass":
             door_logic(user_name)
