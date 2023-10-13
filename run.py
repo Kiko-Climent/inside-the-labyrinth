@@ -2,7 +2,24 @@ import random
 
 from colorama import Fore, Style, init, deinit
 
+import time
+
 init()
+
+def progressive_print(text, speed=0.05):
+    """
+    Print text progressively, letter by letter.
+
+    Args:
+        text (str): The text to be printed.
+        speed (float, optional): The speed at which the letters are printed. 
+            Smaller values result in faster printing. Default is 0.05.
+    """
+    for letter in text:
+        print(letter, end='', flush=True)
+        time.sleep(speed)
+    print()
+
 
 def press_enter_to_continue(message="Press ENTER to continue..."):
     """
@@ -31,7 +48,7 @@ def intro():
     print("    @@@@@@@@@@@@@@@@@@@@    ")
     print("@@@ INSIDE THE LABYRINTH @@@")
     print("    @@@@@@@@@@@@@@@@@@@@    ")
-    print(
+    progressive_print(
         "\n...you just wake up,\n\n"
         "its dark in here and you realize that you are inside of a Labyrinth..."
     )
