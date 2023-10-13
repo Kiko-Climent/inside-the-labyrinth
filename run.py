@@ -4,17 +4,27 @@ from colorama import Fore, Style, init, deinit
 
 init()
 
-def get_enter_key():
+def press_enter_to_continue(message="Press ENTER to continue..."):
+    """
+    Waits for the user to press ENTER.
+
+    This function will display the specified message and prompt the user to press ENTER.
+    It will not accept any other input. If the user presses any other key, an error message
+    will be displayed. If the user presses CTRL+C, an error message will be displayed as well.
+
+    Args:
+        message (str, optional): The message to display when prompting the user. 
+            Defaults to "Press ENTER to continue...".
+    """
     while True:
         try:
-            user_input = input("Press ENTER to continue...")
+            user_input = input(message)
             if user_input == "":
                 return
             else:
                 print("Please press only ENTER.")
         except KeyboardInterrupt:
             print("\nPlease press only ENTER.")
-
 
 # Add introduction function
 def intro():
@@ -45,8 +55,7 @@ def main():
 
     if ready.lower() == "yes":
         print("\nGreat! Let's start the adventure.")
-        input("Press ENTER to continue...")
-        get_enter_key()
+        press_enter_to_continue(message="Press ENTER to continue...")
         first_challenge(name)
     elif ready.lower() == "no":
         print("\nDefinitely, you're not the right person for this.")
@@ -86,8 +95,9 @@ def dragons_challenge(user_name):
         print("\nNow you walk with a shield")
         input("Press ENTER to continue")
         print("\nThe dragon wakes up and starts breathing fire")
-        input("Press ENTER to use the shield")
-        get_enter_key()
+        
+        press_enter_to_continue("Press ENTER to use the shield")
+
         print(
             "\nGreat! you stop the fire\nunfortunately the shield is useless now\nbut you save your life"
         )
