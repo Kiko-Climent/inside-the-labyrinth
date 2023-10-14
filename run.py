@@ -1,7 +1,7 @@
 import random
 import time
-
 from colorama import Fore, Style, init, deinit
+from art import text2art
 
 init()
 
@@ -45,12 +45,13 @@ def press_enter_to_continue(message="Press ENTER to continue..."):
 # Add introduction function
 def intro():
     # Add Ansi escape code to make the title bold
-    print("\033[1m    ********************    \033[0m")
-    print("\033[1m*** INSIDE THE LABYRINTH ***\033[0m")
-    print("\033[1m    ********************    \033[0m")
+    print("*" * 124)
+    result = text2art("\nINSIDE THE LABYRINTH")
+    print(result)
+    print("*" * 124)
     progressive_print(
         "\n...you just wake up,\n\n"
-        "its dark in here and you realize that you are inside of a Labyrinth..."
+        "its dark in here and you realize that you are inside of a Labyrinth.."
     )
     name = input(Fore.RED + "What's your name?: " + Style.RESET_ALL)
     return name
@@ -68,14 +69,16 @@ def main():
     name = intro()
     progressive_print(f"\nOk, {name}, how are you gonna get out from here?")
     ready_options = ["yes", "no"]
-    ready = get_valid_input(ready_options, f"{Fore.RED}Are you ready? (yes/no): {Style.RESET_ALL} ")
+    ready = get_valid_input(
+        ready_options, f"{Fore.RED}Are you ready? (yes/no): {Style.RESET_ALL} ")
 
     if ready.lower() == "yes":
-        progressive_print("\nGreat! Let's start the adventure.")
+        progressive_print(f"{Fore.RED}\nGreat! Let's start the adventure.{Style.RESET_ALL}")
         press_enter_to_continue(message="Press ENTER to continue...")
         first_challenge(name)
     elif ready.lower() == "no":
-        progressive_print("\nDefinitely, you're not the right person for this.")
+        progressive_print(f"{Fore.RED}\nDefinitely, you're not the right person for this.{Style.RESET_ALL}")
+
 
 def first_challenge(user_name):
     progressive_print("\nYou find yourself in a room with 2 different doors..")
@@ -116,7 +119,7 @@ def dragons_challenge(user_name):
         press_enter_to_continue("Press ENTER to use the shield")
 
         print(
-            "\nGreat! you stop the fire\nsaddly the shield is useless now"
+            "\nGREAT! you stop the fire\nsaddly the shield is useless now"
             " but you save your life"
         )
         press_enter_to_continue(message="Press ENTER to cross the long corridor")
@@ -124,8 +127,8 @@ def dragons_challenge(user_name):
 
     elif choice.lower() == "no":
         press_enter_to_continue(message="\nPress ENTER to continue")
-        print("\nThe dragon wakes up and starts breathing fire")
-        print("\nYou should had take the shield amigo, GAME OVER")
+        progressive_print(f"\n{Fore.RED}The dragon wakes up and starts breathing fire{Style.RESET_ALL}")
+        progressive_print(f"{Fore.RED}You should had take the shield amigo, GAME OVER{Style.RESET_ALL}")
 
 
 def jester_challenge(user_name):
@@ -332,8 +335,8 @@ def snakes_challenge(user_name):
     choice = get_valid_input(fight_options, "\nWhat do you want to do? (fight/run): ")
 
     if choice.lower() == "fight":
-        print(
-            "\nUnfortunately, there are too many snakes and you get bitten. GAME OVER."
+        progressive_print(
+            f"{Fore.RED}\nUnfortunately, there are too many snakes and you get bitten. GAME OVER.{Style.RESET_ALL} "
         )
     elif choice.lower() == "run":
         print("\nYou leave the sword behind but you also save your life")
