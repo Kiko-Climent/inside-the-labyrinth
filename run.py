@@ -50,7 +50,15 @@ def press_enter_to_continue(message="Press ENTER to continue..."):
 
 
 def intro():  # Add introduction function
-    
+    """
+    Displays an introduction to the game 'Inside the Labyrinth'.
+
+    This function prints a stylized title, provides some introductory text, and
+    prompts the user to enter their name.
+
+    Returns:
+        str: The name entered by the user.  
+    """
     print("*" * 124)
     result = text2art("\nINSIDE THE LABYRINTH")
     print(result)
@@ -69,14 +77,6 @@ def get_valid_input(options, prompt="Please enter a valid choice: "):
 
     This function prompts the user to enter a choice from a list of options.
     It continues to prompt the user until a valid choice is provided.
-
-    Args:
-        options (list): A list of valid choices.
-        prompt (str, optional): The message to display when prompting the user.
-            Defaults to "Please enter a valid choice: ".
-
-    Returns:
-        str: The user's valid input.
     """
     while True:
         user_input = input(prompt).lower()
@@ -87,6 +87,12 @@ def get_valid_input(options, prompt="Please enter a valid choice: "):
 
 
 def main():
+    """
+    This function initiates the game, prompts the user with an introduction and 
+    asks if they are ready to start the adventure. Depending on the response,
+    it either proceeds with the first challenge or delivers a message
+    indicating that the user is not prepared for it.
+    """
     name = intro()
     progressive_print(f"\nOk, {name}, how are you gonna get out from here?")
     ready_options = ["yes", "no"]
@@ -109,6 +115,12 @@ def main():
 
 
 def first_challenge(user_name):
+    """
+    Triggers the first challenge of the game.
+    This function presents the player with a choice of two doors, each with a
+    distinct emblem. Depending on the player's choice, they will face different
+    challenges.
+    """
     progressive_print("\nYou're standing in a room with two distinct doors.")
     progressive_print(
         "The first one is decorated with a shield bearing a snake emblem,"
@@ -136,6 +148,12 @@ def first_challenge(user_name):
 
 
 def dragons_challenge(user_name):
+    """
+    This function simulates a scenario where the player encounters a dragon.
+    The player is given the choice to take a shield before waking the dragon. 
+    Depending on the choice, the outcome will be different.
+
+    """
     progressive_print(f"It's your lucky day "
                       f"{user_name}, the dragon sleeps.")
     progressive_print("\nYou also see a long corridor "
@@ -161,7 +179,7 @@ def dragons_challenge(user_name):
         )
         press_enter_to_continue(message="Press ENTER "
                                         "to cross the long corridor")
-        jester_challenge(user_name)
+        jester_challenge()
 
     elif choice.lower() == "no":
         press_enter_to_continue(message="\nPress ENTER to continue")
@@ -175,7 +193,12 @@ def dragons_challenge(user_name):
         )
 
 
-def jester_challenge(user_name):
+def jester_challenge():
+    """
+    This function leads to an interaction with a jester.
+    In it, a game of rock, paper, scissors is introduced.
+    Depending on the outcome, the action will be different.
+    """
     progressive_print("\nAlmost at the end of the corridor "
                       "you find a Jester chained to the wall")
     press_enter_to_continue(message="Press ENTER to talk to the Jester")
@@ -239,7 +262,7 @@ def jester_challenge(user_name):
                 )
                 press_enter_to_continue(
                     message="\nPress ENTER to keep walking")
-                numbered_doors_chalenge(user_name)
+                numbered_doors_chalenge()
                 break
 
             else:
@@ -253,12 +276,12 @@ def jester_challenge(user_name):
                 )
                 press_enter_to_continue(
                     message="\nPress ENTER to keep walking")
-                numbered_doors_chalenge(user_name)
+                numbered_doors_chalenge()
                 break
 
 
 # Add numbered options challenge
-def numbered_doors_chalenge(user_name):
+def numbered_doors_chalenge():
     progressive_print("\nFinally you made it "
                       "to the end of the corridor")
     progressive_print("\nYou find now two doors, "
@@ -275,7 +298,7 @@ def numbered_doors_chalenge(user_name):
     if choice == "1":
         print("\nYou opened the door [1], its completely dark")
         press_enter_to_continue(message="\nPress ENTER to get in")
-        progressive_print(f"{Fore.RED}There is a leap into the void, "
+        progressive_print(f"{Fore.RED}\nThere is a leap into the void, "
                           f"and you fall.\nGAME OVER.{Style.RESET_ALL}")
 
     elif choice == "2":
@@ -287,12 +310,12 @@ def numbered_doors_chalenge(user_name):
                           "another one going downstairs.")
         path_options = ["up", "down"]
         choice = get_valid_input(
-            path_options, f"{Fore.BLUE}\nWhich one are taking?"
+            path_options, f"{Fore.BLUE}\nWhich one are you taking?"
                           f" (up/down): {Style.RESET_ALL}"
         )
 
         if choice.lower() == "up":
-            even_odd_challenge(user_name)
+            even_odd_challenge()
 
         elif choice.lower() == "down":
             progressive_print("\nYou go downstairs,")
@@ -304,7 +327,10 @@ def numbered_doors_chalenge(user_name):
             print(f"\nGAME OVER{Style.RESET_ALL}")
 
 
-def even_odd_challenge(user_name):
+def even_odd_challenge():
+    """
+    Simulates the challenge of choosing between two numbered doors.
+    """
     progressive_print("\nYou follow the stairs and you get into another room.")
     progressive_print("\nInside the room there's a guy holding a knife,")
     progressive_print("and behind him a door.")
@@ -338,7 +364,7 @@ def even_odd_challenge(user_name):
     )
 
     # Ensure that the user's chosen number is between 1 and 5
-    while not (1 <= player1_number <= 5):
+    while not 1 <= player1_number <= 5:
         print(f"{Fore.YELLOW}Please choose a number"
               f"between 1 and 5.{Style.RESET_ALL}")
         player1_number = int(
@@ -366,12 +392,14 @@ def even_odd_challenge(user_name):
         total_fingers % 2 != 0 and user_choice == "odd"
     ):
         progressive_print(
-            f"{Fore.GREEN}\nYOU WIN! The total was"
+            f"{Fore.GREEN}\nYOU WIN! The total was "
             f"{total_fingers}, which is {user_choice}.")
         progressive_print(f"{Fore.MAGENTA}'Ok mate, you can open the door")
-        progressive_print(f"Good luck with the last challenge'{Style.RESET_ALL}")
-        press_enter_to_continue(message="\nPress ENTER to face the final challenge")
-        last_challenge(user_name)
+        progressive_print(f"Good luck with the last challenge'"
+                          f"{Style.RESET_ALL}")
+        press_enter_to_continue(message="\nPress ENTER to face "
+                                "the final challenge")
+        last_challenge()
 
     else:
         progressive_print(
@@ -380,14 +408,15 @@ def even_odd_challenge(user_name):
         progressive_print(f"GAME OVER{Style.RESET_ALL}")
 
 
-def last_challenge(user_name):
+def last_challenge():
     progressive_print("\nYou made it, you are almost there amigo")
     progressive_print("You find yourself in a room, there's an iron door")
     progressive_print("and 5 keys hanging on the wall.")
     progressive_print("\nYou have 2 chances to open that door")
     progressive_print("but only 1 of those keys open it")
     progressive_print("\nIf you open it you'll be free")
-    progressive_print("but if you don't, you'll get locked in that room forever\n")
+    progressive_print("but if you don't, "
+                      "you'll get locked in that room forever\n")
 
     attempts = 0
 
@@ -412,7 +441,9 @@ def last_challenge(user_name):
                               f"The door remains locked.{Style.RESET_ALL}")
             attempts += 1
             if attempts < 2:
-                print(f'{Fore.YELLOW}\nYou have {2 - attempts} attempt(s) left.{Style.RESET_ALL}')
+                print(
+                    f'{Fore.YELLOW}\nYou have {2 - attempts} '
+                    f'attempt(s) left.{Style.RESET_ALL}')
             else:
                 progressive_print(
                     f"{Fore.RED}\nYou've used up all your attempts."
@@ -437,37 +468,42 @@ def snakes_challenge(user_name):
             f"\nand you get bitten. GAME OVER.{Style.RESET_ALL}"
         )
     elif choice.lower() == "run":
-        progressive_print("\nYou leave the sword behind but you also save your life")
+        progressive_print("\nYou leave the sword behind "
+                          "but you also save your life")
         progressive_print(
-            "\nYou pass a long corridor..\nyou find another door and a magician next to it."
+            "\nYou pass a long corridor.."
+            "\nyou find another door and a magician next to it."
         )
         magician_challenge(user_name)
 
 
 def door_logic(user_name):
-    print("\nThe Magician steps aside and opens the door for you")
-    print(f"{Fore.MAGENTA}\n'Have a nice journey'{Style.RESET_ALL}"
+    progressive_print("\nThe Magician steps aside and opens the door for you")
+    progressive_print(f"{Fore.MAGENTA}\n'Have a nice journey'{Style.RESET_ALL}"
            " says the Magician")
-    print(
-        "\nYou get into another room, there you find 2 different paths\nIt's time to make up your mind again.."
+    progressive_print(
+        "\nYou get into another room, there you find 2 different paths"
+        "\nIt's time to make up your mind again.."
     )
     door_options = ["left", "right"]
     choice = get_valid_input(
-        door_options, "\nWhere do you want to go? : (left/right): "
+        door_options, f"{Fore.BLUE}\nWhere do you want to go?"
+                      f"(left/right): {Style.RESET_ALL}"
     )
 
     if choice.lower() == "left":
         press_enter_to_continue(message="\nPress ENTER to continue...")
         print("\nYou took the longest way amigo")
         press_enter_to_continue(message="\nPress again ENTER to continue")
-        numbered_doors_chalenge(user_name)
+        numbered_doors_chalenge()
     elif choice.lower() == "right":
-        print("\nLooks like you cant get rid of those snakes")
-        print("there are way too many and you get bitten. GAME OVER.")
+        progressive_print(f"{Fore.RED}\nLooks like you cant get "
+                          "rid of those snakes")
+        progressive_print(f"there are way too many {user_name}"
+                          f"\nand you get bitten. GAME OVER.{Style.RESET_ALL}")
 
 
-def magician_challenge(user_name):
-    
+def magician_challenge(user_name):   
     progressive_print("\nWhat do you want to do now amigo?")
     print("Talk to the magician or open the door?: ")
     magician_options = ["talk", "door"]
@@ -492,7 +528,7 @@ def magician_challenge(user_name):
         progressive_print(f"{Fore.MAGENTA}\n'ok {new_name},"
                            "I guess you don't like the labyrinth, right?")
         progressive_print("I can help you to get out from here")
-        progressive_print(f"Do you want to play a little game with me?'")
+        progressive_print("Do you want to play a little game with me?'")
         play_options = ["play", "pass"]
         choice = get_valid_input(play_options, f"{Fore.BLUE}(play/pass): "
                                                f"{Style.RESET_ALL}")
@@ -501,14 +537,14 @@ def magician_challenge(user_name):
             progressive_print("\nThe magician gives you a dice\n")
             print(f"{Fore.MAGENTA}\n'OK, let's do that'\n")
             progressive_print(
-                f"'Throw the daze, if your score is 4 or more"
-                f"\nI will open a magic door "
-                f"\nthat will bring "
+                f"'Throw the dice, if your score is 4 or more"
+                f"I will open a magic door "
+                f"that will bring "
                 f"you closer to the exit'{Style.RESET_ALL}"
             )
             progressive_print(
-                f"{Fore.MAGENTA}'But, if you score less than 4,..well,"
-                f"\nyou won't like that young boy'{Style.RESET_ALL}"
+                f"{Fore.MAGENTA}\n'But, if you score less than 4,..well,"
+                f"you won't like that young boy'{Style.RESET_ALL}"
             )
             press_enter_to_continue(message="\nPress ENTER to roll the dice")
 
@@ -525,7 +561,7 @@ def magician_challenge(user_name):
                 press_enter_to_continue(
                     message="\nPress ENTER to face the final challenge"
                 )
-                last_challenge(user_name)
+                last_challenge()
 
             else:
                 print(f"{Fore.RED}\nOh no! {new_name}, YOU LOSE"
