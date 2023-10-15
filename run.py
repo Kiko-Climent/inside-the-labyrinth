@@ -205,7 +205,8 @@ def jester_challenge(user_name):
     )
     press_enter_to_continue(message="Press ENTER to discover the game")
     progressive_print(
-        f"{Fore.MAGENTA}\n'Sweet mate, let's play rock-paper-scissors, i guess you know how, right?'\n{Style.RESET_ALL}"
+        f"{Fore.MAGENTA}\n'Sweet mate, let's play rock-paper-scissors, "
+        f"i guess you know how, right?'\n{Style.RESET_ALL}"
     )
     press_enter_to_continue(message="Press ENTER to play")
 
@@ -214,11 +215,13 @@ def jester_challenge(user_name):
     while True:  # Loop in case of a Tie
         jester_choice = random.choice(choices)
         user_choice = get_valid_input(
-            choices, f"{Fore.BLUE}\nChoose: rock, paper, or scissors: {Style.RESET_ALL}"
+            choices, f"{Fore.BLUE}\nChoose: rock, paper, or scissors: "
+            f"{Style.RESET_ALL}"
         ).lower()
 
         if user_choice:
-            progressive_print(f"\nYou chose {user_choice}, and the Jester chose {jester_choice}")
+            progressive_print(f"\nYou choose {user_choice}, "
+                              f"and the Jester choose {jester_choice}")
 
             if user_choice == jester_choice:
                 print(f"{Fore.YELLOW}\nIT'S A TIE{Style.RESET_ALL}")
@@ -231,9 +234,11 @@ def jester_challenge(user_name):
             ):
                 print(f"{Fore.GREEN}\nYOU WIN!{Style.RESET_ALL}")
                 progressive_print(
-                    f"{Fore.MAGENTA}\n'Ok mate,once you cross the corridor you have to open the door [2]'{Style.RESET_ALL}"
+                    f"{Fore.MAGENTA}\n'Ok mate,once you cross the corridor "
+                    f"you have to open the door [2]'{Style.RESET_ALL}"
                 )
-                press_enter_to_continue(message="\nPress ENTER to keep walking")
+                press_enter_to_continue(
+                    message="\nPress ENTER to keep walking")
                 numbered_doors_chalenge(user_name)
                 break
 
@@ -304,22 +309,23 @@ def even_odd_challenge(user_name):
     progressive_print("\nInside the room there's a guy holding a knife,")
     progressive_print("and behind him a door.")
     press_enter_to_continue(message="\nPress ENTER to listen to this guy")
-    progressive_print(f"{Fore.MAGENTA}\nHi pal, you almost have it")
+    progressive_print(f"{Fore.MAGENTA}\n'Hi pal, you almost have it, ")
     progressive_print("but as you can guess i can't let you cross that door,")
-    progressive_print(f"at least not without playing a game{Style.RESET_ALL}")
+    progressive_print(f"at least not without playing a game'{Style.RESET_ALL}")
     press_enter_to_continue(message="\nPress ENTER to play")
-    print(f"{Fore.MAGENTA}\n'let's play 'even or odd'")
-    print("if you win you get the door but if you loose..")
-    print(f"you get the knife, and not as a present\n{Style.RESET_ALL}")
+    progressive_print(f"{Fore.MAGENTA}\n'Let's play 'even or odd'")
+    progressive_print("\n'If you win you get the door, but if you loose..")
+    progressive_print(f"you get the knife, "
+                      f"and not as a present'\n{Style.RESET_ALL}")
 
     user_choice = get_valid_input(
         ["even", "odd"], f"{Fore.BLUE}Choose 'even' or 'odd': "
                          f"{Style.RESET_ALL}")
 
     if user_choice == "even":
-        progressive_print("\nYou've chosen 'even'.")
+        progressive_print("\nYou've chosen 'even'.\n")
     elif user_choice == "odd":
-        progressive_print("\nYou've chosen 'odd'.")
+        progressive_print("\nYou've chosen 'odd'.\n")
     else:
         print(f"{Fore.YELLOW}\nInvalid Choice.{Style.RESET_ALL}")
 
@@ -327,13 +333,14 @@ def even_odd_challenge(user_name):
     player1_number = int(
         get_valid_input(
             ["1", "2", "3", "4", "5"], 
-            "Player 1, "
-            f"{Fore.BLUE}choose a number (1-5): {Style.RESET_ALL}")
+            f"{Fore.BLUE}Player 1, "
+            f"choose a number (1-5): {Style.RESET_ALL}")
     )
 
     # Ensure that the user's chosen number is between 1 and 5
     while not (1 <= player1_number <= 5):
-        print("Please choose a number between 1 and 5.")
+        print(f"{Fore.YELLOW}Please choose a number"
+              f"between 1 and 5.{Style.RESET_ALL}")
         player1_number = int(
             get_valid_input(
                 ["1", "2", "3", "4", "5"], "Player 1, choose a number (1-5): "
@@ -341,13 +348,14 @@ def even_odd_challenge(user_name):
         )
 
     player2_number = random.randint(1, 5)
-    print(f"Player 2 (Computer) chose {player2_number}.")
+    progressive_print(f"Player 2 (Computer) chose {player2_number}.")
 
     # Both players show fingers
     player1_fingers = player1_number
     player2_fingers = player2_number
 
-    print(f"\nPlayer 1 shows {player1_fingers} fingers.")
+    print(f"{Fore.BLUE}\nPlayer 1 shows {player1_fingers} "
+          f"fingers.{Style.RESET_ALL}")
     print(f"Player 2 (Computer) shows {player2_fingers} fingers.")
 
     # Calculate the total
@@ -357,15 +365,19 @@ def even_odd_challenge(user_name):
     if (total_fingers % 2 == 0 and user_choice == "even") or (
         total_fingers % 2 != 0 and user_choice == "odd"
     ):
-        print(f"\nYOU WIN! The total was {total_fingers}, which is {user_choice}.")
-        print("Ok mate, you can open the door")
-        print("Good luck with the last challenge")
+        progressive_print(
+            f"{Fore.GREEN}\nYOU WIN! The total was"
+            f"{total_fingers}, which is {user_choice}.")
+        progressive_print(f"{Fore.MAGENTA}'Ok mate, you can open the door")
+        progressive_print(f"Good luck with the last challenge'{Style.RESET_ALL}")
         press_enter_to_continue(message="\nPress ENTER to face the final challenge")
         last_challenge(user_name)
 
     else:
-        print(f"\nYOU LOSE. The total was {total_fingers}, which is not {user_choice}.")
-        print("GAME OVER")
+        progressive_print(
+            f"{Fore.RED}\nYOU LOSE. The total was {total_fingers}, "
+            f"which is not {user_choice}.")
+        progressive_print(f"GAME OVER{Style.RESET_ALL}")
 
 
 def last_challenge(user_name):
@@ -382,20 +394,21 @@ def last_challenge(user_name):
     while attempts < 2:
         user_choice = get_valid_input(
             ["key1", "key2", "key3", "key4", "key5"],
-            "Choose 'key1', 'key2', 'key3', 'key4', 'key5': ",
+            f"{Fore.BLUE}Choose 'key1', 'key2', 'key3', 'key4', 'key5': "
+            f"{Style.RESET_ALL}",
         )
 
         # Check if the chosen key is correct
         if user_choice == "key3":
             progressive_print(f"{Fore.GREEN}\nCONGRATULATIONS! "
                               "You've chosen the correct key.")
-            progressive_print("You've successfully opened"
+            progressive_print("You've successfully opened "
                               f"the door and escaped the labyrinth!"
                               f"{Style.RESET_ALL}")
             return  # Exit the function, the game is won
 
         else:
-            progressive_print(f"{Fore.RED}\nWrong choice!"
+            progressive_print(f"{Fore.RED}\nWrong choice! "
                               f"The door remains locked.{Style.RESET_ALL}")
             attempts += 1
             if attempts < 2:
@@ -403,8 +416,8 @@ def last_challenge(user_name):
             else:
                 progressive_print(
                     f"{Fore.RED}\nYou've used up all your attempts."
-                    f"You are now trapped in the room forever."
-                    f"GAME OVER{Style.RESET_ALL}"
+                    f"\nYou are now trapped in the room forever."
+                    f"\nGAME OVER{Style.RESET_ALL}"
                 )
                 return  # Exit the function, the game is lost
 
