@@ -40,7 +40,7 @@ def press_enter_to_continue(message="Press ENTER to continue..."):
     """
     while True:
         try:
-            user_input = input(message)
+            user_input = input(message + "\n")
             if user_input == "":
                 return
             else:
@@ -133,7 +133,7 @@ def first_challenge(user_name):
     choice = get_valid_input(
         door_options,
         f"{Fore.BLUE}\nWhich door do you want to open? "
-        f"(snake/dragon):{Style.RESET_ALL} ",
+        f"(snake/dragon):{Style.RESET_ALL} \n",
     )
 
     if choice.lower() == "snake":
@@ -548,7 +548,7 @@ def magician_challenge(user_name):
             f"{Style.RESET_ALL}asks the magician\n")
 
         while True:
-            new_name = input(" ")
+            new_name = input(" \n")
             if new_name.lower() == user_name.lower():
                 break
             else:
