@@ -29,7 +29,7 @@ def press_enter_to_continue(message="Press ENTER to continue..."):
     Waits for the user to press ENTER.
 
     This function will display the specified message and prompt the user
-    to press ENTER. It will not accept any other input. 
+    to press ENTER.It will not accept any other input.
     If the user presses any other key, an error message
     will be displayed. If the user presses CTRL+C,
     an error message will be displayed as well.
@@ -57,7 +57,7 @@ def intro():  # Add introduction function
     prompts the user to enter their name.
 
     Returns:
-        str: The name entered by the user.  
+        str: The name entered by the user.
     """
     print("*" * 124)
     result = text2art("\nINSIDE THE LABYRINTH")
@@ -88,7 +88,7 @@ def get_valid_input(options, prompt="Please enter a valid choice: "):
 
 def main():
     """
-    This function initiates the game, prompts the user with an introduction and 
+    This function initiates the game, prompts the user with an introduction and
     asks if they are ready to start the adventure. Depending on the response,
     it either proceeds with the first challenge or delivers a message
     indicating that the user is not prepared for it.
@@ -150,7 +150,7 @@ def first_challenge(user_name):
 def dragons_challenge(user_name):
     """
     This function simulates a scenario where the player encounters a dragon.
-    The player is given the choice to take a shield before waking the dragon. 
+    The player is given the choice to take a shield before waking the dragon.
     Depending on the choice, the outcome will be different.
 
     """
@@ -198,6 +198,7 @@ def jester_challenge():
     This function leads to an interaction with a jester.
     In it, a game of rock, paper, scissors is introduced.
     Depending on the outcome, the action will be different.
+    Add a while loop that is trigered in case of a tie.
     """
     progressive_print("\nAlmost at the end of the corridor "
                       "you find a Jester chained to the wall")
@@ -282,6 +283,10 @@ def jester_challenge():
 
 # Add numbered options challenge
 def numbered_doors_chalenge():
+    """
+    This function simulates the challenge
+    of choosing between two numbered doors.
+    """
     progressive_print("\nFinally you made it "
                       "to the end of the corridor")
     progressive_print("\nYou find now two doors, "
@@ -329,7 +334,9 @@ def numbered_doors_chalenge():
 
 def even_odd_challenge():
     """
-    Simulates the challenge of choosing between two numbered doors.
+    In this function, its simulated the game of 'Odd or Even'.
+    User will have to choose first between even or odd
+    and then choose a number between 1 and 5.
     """
     progressive_print("\nYou follow the stairs and you get into another room.")
     progressive_print("\nInside the room there's a guy holding a knife,")
@@ -358,7 +365,7 @@ def even_odd_challenge():
     # Both players choose a number
     player1_number = int(
         get_valid_input(
-            ["1", "2", "3", "4", "5"], 
+            ["1", "2", "3", "4", "5"],
             f"{Fore.BLUE}Player 1, "
             f"choose a number (1-5): {Style.RESET_ALL}")
     )
@@ -409,6 +416,12 @@ def even_odd_challenge():
 
 
 def last_challenge():
+    """
+    Last function of the labyrinth simulates a little game where
+    the user will have to choose between 5 different options, only
+    one is correct. Add a while that will be trigered in case the
+    user fails the first chance.
+    """
     progressive_print("\nYou made it, you are almost there amigo")
     progressive_print("You find yourself in a room, there's an iron door")
     progressive_print("and 5 keys hanging on the wall.")
@@ -454,6 +467,11 @@ def last_challenge():
 
 
 def snakes_challenge(user_name):
+    """
+    The player is presented with two options:
+    - Take the sword and fight the snakes.
+    - Run away, leaving the sword behind.
+    """
     progressive_print("you can either: ")
     progressive_print("\nTake the sword and fight the snakes,")
     progressive_print("or run away leaving the sword behind ")
@@ -478,9 +496,14 @@ def snakes_challenge(user_name):
 
 
 def door_logic(user_name):
+    """
+    This function similates the logic behind choosing between
+    two different options, in this case two doors. Different outcome
+    will happen depending on the decision.
+    """
     progressive_print("\nThe Magician steps aside and opens the door for you")
     progressive_print(f"{Fore.MAGENTA}\n'Have a nice journey'{Style.RESET_ALL}"
-           " says the Magician")
+                      " says the Magician")
     progressive_print(
         "\nYou get into another room, there you find 2 different paths"
         "\nIt's time to make up your mind again.."
@@ -503,7 +526,15 @@ def door_logic(user_name):
                           f"\nand you get bitten. GAME OVER.{Style.RESET_ALL}")
 
 
-def magician_challenge(user_name):   
+def magician_challenge(user_name):
+    """
+    This function simulates an interaction with a new character.
+    The name will be requested again and needs to match the name that was
+    given when started the labyrinth. A while loop will handle interactions
+    in case the names dont match.
+    Additionally, it incorporates a dice game function,
+    where the user engages in a simple simulation of rolling a dice.
+    """
     progressive_print("\nWhat do you want to do now amigo?")
     print("Talk to the magician or open the door?: ")
     magician_options = ["talk", "door"]
@@ -512,8 +543,9 @@ def magician_challenge(user_name):
                           f"{Style.RESET_ALL}")
 
     if choice.lower() == "talk":
-        progressive_print(f"{Fore.MAGENTA}\n'Who are you young boy?,'{Style.RESET_ALL}"
-                          f" asks the magician\n")
+        progressive_print(
+            f"{Fore.MAGENTA}\n'Who are you young boy?', "
+            f"{Style.RESET_ALL}asks the magician\n")
 
         while True:
             new_name = input(" ")
@@ -526,7 +558,7 @@ def magician_challenge(user_name):
                 )
 
         progressive_print(f"{Fore.MAGENTA}\n'ok {new_name},"
-                           "I guess you don't like the labyrinth, right?")
+                          "I guess you don't like the labyrinth, right?")
         progressive_print("I can help you to get out from here")
         progressive_print("Do you want to play a little game with me?'")
         play_options = ["play", "pass"]
@@ -554,10 +586,13 @@ def magician_challenge(user_name):
             if dice_roll >= 4:
                 progressive_print(
                     f"{Fore.GREEN}\nCONGRATULATIONS {new_name},"
-                    f"{Fore.MAGENTA}'let me open that magic door for you'{Style.RESET_ALL}"
+                    f"{Fore.MAGENTA}'let me open that magic door for you'"
+                    f"{Style.RESET_ALL}"
                 )
-                progressive_print("\nThe Magician uses his power to open a magic door")
-                progressive_print("that brings you straigt to the last challenge")
+                progressive_print("\nThe Magician uses his power "
+                                  "to open a magic door")
+                progressive_print("that brings you straigt"
+                                  "to the last challenge")
                 press_enter_to_continue(
                     message="\nPress ENTER to face the final challenge"
                 )
@@ -568,7 +603,8 @@ def magician_challenge(user_name):
                       f"{Fore.MAGENTA} 'I hope you like "
                       f"fire young boy'{Style.RESET_ALL}")
                 press_enter_to_continue(message="\nPress ENTER to continue...")
-                progressive_print("\nThe Magician has brought you to the dragon's room")
+                progressive_print("\nThe Magician has brought "
+                                  "you to the dragon's room")
                 dragons_challenge(user_name)
 
         elif choice.lower() == "pass":
