@@ -1,1 +1,2 @@
-# Your requirements go here
+art==6.1
+colorama==0.4.6
