@@ -4,7 +4,9 @@
 
 The User has to escape from a virtual labyrinth, in the search for the exit, the user will interact with the computer, which will put the user to the test through different challenges, including decision-making and games of chance.
 
+
 ![Mock Up](/media/mockup.png)
+
 
 [Live Version of the project](https://inside-the-labyrinth-d3a038d774c6.herokuapp.com/)
 
