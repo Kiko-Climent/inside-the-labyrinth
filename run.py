@@ -47,7 +47,9 @@ def press_enter_to_continue(message="Press ENTER to continue..."):
                 print(f"{Fore.YELLOW}\nPlease press only ENTER."
                       f"{Style.RESET_ALL}")
         except KeyboardInterrupt:
-            print(f"{Fore.YELLOW}\nPlease press only ENTER.{Style.RESET_ALL}")     
+            print(
+                f"{Fore.YELLOW}\nPlease press only ENTER."
+                f"{Style.RESET_ALL}")
 
 
 def intro():  # Add introduction function
@@ -210,7 +212,7 @@ def jester_challenge():
     )
     press_enter_to_continue(message="Press ENTER to listen the Jester")
     progressive_print(
-        f"{Fore.MAGENTA}\n'Hi,well..my name doesnt matter "
+        f"{Fore.MAGENTA}\n'Hi, well..my name doesnt matter "
         f"and the reason i'm here?..\nthat's a long story'"
         f"{Style.RESET_ALL}, says the Jester"
     )
@@ -222,16 +224,16 @@ def jester_challenge():
     )
     progressive_print(
         f"\n'The other one will bring you to death'{Style.RESET_ALL},"
-        " replies the Jester with an anoying smile."
+        "\nreplies the Jester with an anoying smile."
     )
     progressive_print(
-        f"{Fore.MAGENTA}'I can tell you which one is the right one, "
-        f"but for that you have to play a game with me.'{Style.RESET_ALL}\n"
+        f"{Fore.MAGENTA}'\nI can tell you which one is the right one, "
+        f"\nbut for that you have to play a game with me.'{Style.RESET_ALL}\n"
     )
     press_enter_to_continue(message="Press ENTER to discover the game")
     progressive_print(
         f"{Fore.MAGENTA}\n'Sweet mate, let's play rock-paper-scissors, "
-        f"i guess you know how, right?'\n{Style.RESET_ALL}"
+        f"\ni guess you know how, right?'\n{Style.RESET_ALL}"
     )
     press_enter_to_continue(message="Press ENTER to play")
 
@@ -291,7 +293,7 @@ def numbered_doors_chalenge():
     progressive_print("\nFinally you made it "
                       "to the end of the corridor")
     progressive_print("\nYou find now two doors, "
-                      "the first one with a number [1] on it")
+                      "the first one with a number [1] on it,")
     progressive_print("The second one with a number [2] on it")
     progressive_print("\nTime to choose again")
     door_option = ["1", "2"]
@@ -312,7 +314,8 @@ def numbered_doors_chalenge():
         press_enter_to_continue(message="\nPress ENTER get in")
         progressive_print("\nOnce you enter, a light turns on, "
                           "illuminating the entire room,")
-        progressive_print("now you see two paths, one going upstairs "
+        progressive_print("now you see two paths:"
+                          "\none going upstairs "
                           "another one going downstairs.")
         path_options = ["up", "down"]
         choice = get_valid_input(

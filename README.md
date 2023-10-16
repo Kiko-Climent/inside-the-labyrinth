@@ -39,22 +39,22 @@ After entering our username, the computer will ask us if we are truly prepared f
 
 ![Intro](/media/intro2.png)
 
-**2- First Challenge:**
+**2 - First Challenge:**
 The first decision the user will have to make is the path to follow. Here, two paths will be presented to us: the path of the snake or the path of the dragon. Depending on the choice, the user will face different challenges.
 
 ![First Challenge](/media/first_challenge.png)
 
-**3- The Dragon’s Challenge:**
+**3 - The Dragon’s Challenge:**
 If we choose the path of the dragon, we will encounter another decision to make. Whether to take the shield or, on the contrary, leave it. The dragon will awaken whether we take the shield or not, so if we leave it on the wall, the game will end.
 
 ![Dragon Challenge](/media/dragon-challenge.png)
 
-**4- The Jester Challenge:**
+**4 - The Jester Challenge:**
 If we successfully pass the Dragon’s Challenge, the new challenge the user will face is the “Jester”. The jester will offer us assistance with the next challenge only if we play a game of chance. In this case, the jester challenges us to play 'Rock, Paper, Scissors'. In case of losing, the game will not end, but we will not receive the clue to pass the next challenge.
 
 ![Jester Challenge](/media/jester-challenge.png)
 
-**5- The Numbered Door Challenge:**
+**5 - The Numbered Door Challenge:**
 Once we have left the jester behind, we will encounter a new choice of doors, this time labeled as 1 and 2. If we manage to defeat the jester beforehand, we will have no difficulty in knowing which one will lead us to the next challenge, as one of the two contains a deadly trap.
 
 ![Numbered Doors Challenge](/media/door-challenge.png)
@@ -71,7 +71,7 @@ If the user manages to defeat the guardian, they will face the final challenge. 
 
 ![Key Challenge](/media/last-challenge.png)
 
-**8 -The Snake Challenge:**
+**8- The Snake Challenge:**
 In the oder hand, if you decide to open the Snake’s door, we will have to make up our mind and decide if we take the sword hanging on the wall to fight the snakes on that room or if we decide to run and leave the sword behind. This decision will be capital to keep alive in the labyrinth.
 
 ![Snake Chalenge](/media/snake.png)
@@ -103,15 +103,15 @@ Along with the addition of the timer, it would also be interesting to gather all
 
 ### PROGRAMS AND LYBRARIES USED: ###
 
-- [Gitpod]()
-- [Visual Studio Code]()
-- [Github]()
-- [Heroku]()
-- [Colorama Library]()
-- [Art Library]()
-- [Random Library]()
-- [Time Library]()
-- [Black library]()
+- [Gitpod](https://gitpod.io/) - IDE used to create the site.
+- [Visual Studio Code](https://code.visualstudio.com/) - IDE used to create the site.
+- [Github](https://github.com/) - To save and store the files for the website.
+- [Heroku](https://heroku.com/) - To deploy the project.
+- [Colorama Library](https://pypi.org/project/colorama/) - To add colors to the project.
+- [Art Library](https://pypi.org/project/art/) - To add the Ascii Art for the header.
+- [Random Library](https://docs.python.org/3/library/random.html) - To add a random number in some challenges.
+- [Time Library](https://docs.python.org/3/library/time.html) - Used to create the _progressive print_ letter by letter.
+- [Black library](https://pypi.org/project/black/) - To format the code.
 
 ## TESTING:
 
@@ -197,12 +197,58 @@ Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" d
 Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" displayed | Entered ('key1', 'key2', 'key4', 'key5',) for test case. | GAME OVER | Pass |
 Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" displayed | Entered (Invalid Input) for test case. | Invalid Choice Amigo | Pass |
 
-- THE SWORD (SANKE'S PATH):
+- THE SWORD (SNAKE'S PATH):
+
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-Shield Choice (Yes) | Prompt "Do you want to take the shield? (yes/no):" displayed | Entered "yes" for test case. | CONGRATULATIONS!, you sa | Pass |
-| Shield Choice (No) | Prompt "Do you want to take the shield? (yes/no):" displayed | Entered "no" for test case. | GAME OVER | Pass |
-| Shield Choice (Invalid Input) | Prompt "Do you want to take the shield? (yes/no):" displayed | Entered "Invalid Inpput" for test case. | Invalid Choice Amigo | Pass |
+| Snake's Room | Prompt "Fight or Run?: " displayed | Entered "fight" for test case. | GAME OVER| Pass |
+| Snake's Room | Prompt "Fight or Run?: " displayed | Entered "run" for test case. | You save your life! | Pass |
+| Snake's Room | Prompt "Fight or Run?: " displayed | Entered "Invalid Input" for test case. | Invalid Choice Amigo | Pass |
+
+- ENCOUNTER WITH THE MAGICIAN (SNAKE'S PATH):
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Player decides to talk | Prompt "Talk to the magician or open the door?: " displayed | Entered valid choice (e.g., 'talk') for test case. | Challenge: Decision to play or pass | Pass |
+| Player decides to open door | Prompt "Talk to the magician or open the door?: " displayed | Entered valid choice (e.g., 'door') for test case. | Challenge: Choose left or right | Pass |
+| Player introduces Invalid Input | Prompt "Talk to the magician or open the door?: " displayed | Entered valid Invalid input for test case. | Invalid Choice Amigo | Pass |
+
+- TALK WITH THE MAGICIAN (SNAKE'S PATH):
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Name matches | Prompt "Who are you young boy?', asks the magician" displayed | Entered matching name provided at the beginning of the game.| Play or Pass Decision | Pass |
+| Name does not match | Prompt "Who are you young boy?', asks the magician" displayed | Entered (jiji) different name than the one provided at the beginning. | Sorry, but jiji doesn't matchyour original name. Try again. | Pass |
+
+- DECISION TO PLAY OR PASS (SNAKE'S PATH):
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| We have to decide if we play with the Magician | Play | Entered Play | The Magician Challenge | Pass |
+| We have to decide if we play with the Magician | Pass | Entered Pass | Challenge: Choose left or right | Pass |
+| We have to decide if we play with the Magician | Invalid Input | Entered Pass | Invalid Choice Amigo | Pass |
+
+
+- THE MAGICIAN CHALLENGE / THE DICE (SNAKE'S PATH):
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Roll Dice (Score >= 4) | Prompt "Roll the dice, if you score 4 or more i'll bring you closer to the exit | Pressed ENTER, rolled dice and obtained a score of 4 or more. | The Final Challenge | Pass |
+| Roll Dice (Score < 4) | Prompt "Roll the dice, if you score 4 or more i'll bring you closer to the exit | Pressed ENTER, rolled dice and obtained a score of less than 4. | The Dragon's Challenge | Pass |
+| ENTER to roll the dice | Prompt "Press ENTER to roll the dice" | Pressed Enter | Dice Result | Pass |
+| ENTER to roll the dice | Prompt "Press ENTER to roll the dice" | Pressed Invalid Input before Enter | Please press only ENTER. | Pass |
+
+- CHOOSE LEFT PATH OR RIGHT PATH (SNAKE'S PATH):
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Player chooses left | Prompt "Where do you want to go?(left/right): " displayed | Entered valid choice (e.g., 'left') for test case. | Numbered Door Challenge | Pass |
+| Player chooses right | Prompt "Where do you want to go?(left/right): " displayed | Entered valid choice (e.g., 'right') for test case. | GAME OVER | Pass |
+| Player introduces Invalid Input | Prompt "Where do you want to go?(left/right): " displayed | Entered Invalid choice (e.g., 'right') for test case. | Invalid Choice Amigo | Pass |
+
+
+
+
 
 ### BUGS:
 
