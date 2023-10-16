@@ -4,10 +4,9 @@
 
 The User has to escape from a virtual labyrinth, in the search for the exit, the user will interact with the computer, which will put the user to the test through different challenges, including decision-making and games of chance.
 
-[Live Version of the project]()
+![Mock Up](/media/mockup.png)
 
-[SCREENSHOT LIVE VERSION]
-[MOCK UP]
+[Live Version of the project](https://inside-the-labyrinth-d3a038d774c6.herokuapp.com/)
 
 ## HOW TO PLAY?
 
@@ -114,7 +113,7 @@ Along with the addition of the timer, it would also be interesting to gather all
 
 **The programming language** used for the development of _"Inside the Labyrinth"_ has been **_Python_**.
 
-### PROGRAMS AND LYBRARIES USED: ###
+### PROGRAMS AND LIBRARIES USED: ###
 
 - [Gitpod](https://gitpod.io/) - IDE used to create the site.
 - [Visual Studio Code](https://code.visualstudio.com/) - IDE used to create the site.
@@ -285,6 +284,10 @@ Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" d
 
 - I also wanted to mention that on sunday while writing my code i run out of Gitpod hours, being sunday, it was imposible for me to get in contact with someone in order to get more so i decided to clone the proyect on my computer and keep working on my local enviroment.
 
+**Remaining Bugs**
+
+- No bugs remaining.
+
 ## DEPLOYMENT:
 
 This project was deployed with _Heroku_
@@ -298,7 +301,7 @@ This project was deployed with _Heroku_
 
 ## CREDITS:
 
-- I took inspiration for creating my Readme from the one added to the Love Sandwiches project. I also found very helpful the one written by Kera Cudmore (https://github.com/kera-cudmore/TheQuizArms) for her JavaScript project at Code Institute.
+- I took inspiration for creating my Readme from the one added to the Love Sandwiches project. I also found very helpful the one written by _Kera Cudmore_ (https://github.com/kera-cudmore/TheQuizArms) in her JavaScript project for _Code Institute._
 
 - The deployment method was also taken from the _Love Sandwiches project_.
 

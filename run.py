@@ -558,7 +558,7 @@ def magician_challenge(user_name):
             else:
                 print(
                     f"{Fore.YELLOW}\nSorry, but {new_name} doesn't match"
-                    f"your original name. Try again.\n{Style.RESET_ALL}"
+                    f" your original name. Try again.\n{Style.RESET_ALL}"
                 )
 
         progressive_print(f"{Fore.MAGENTA}\n'ok {new_name},"
@@ -574,8 +574,8 @@ def magician_challenge(user_name):
             print(f"{Fore.MAGENTA}\n'OK, let's do that'\n")
             progressive_print(
                 f"'Throw the dice, if your score is 4 or more"
-                f"I will open a magic door "
-                f"that will bring "
+                f"I will open a magic door"
+                f"\nthat will bring "
                 f"you closer to the exit'{Style.RESET_ALL}"
             )
             progressive_print(
@@ -595,7 +595,7 @@ def magician_challenge(user_name):
                 )
                 progressive_print("\nThe Magician uses his power "
                                   "to open a magic door")
-                progressive_print("that brings you straigt"
+                progressive_print("that brings you straigt "
                                   "to the last challenge")
                 press_enter_to_continue(
                     message="\nPress ENTER to face the final challenge"
