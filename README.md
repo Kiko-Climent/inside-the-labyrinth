@@ -26,34 +26,61 @@ If the user achieves to pass all the challenges will win the game, and will set 
 **1 - Introduction:**
 After entering our username, the computer will ask us if we are truly prepared for the challenge of escaping the maze; in case the answer is negative, the game will end instantly.
 
+![Intro](/media/intro2.png)
+
 **2- First Challenge:**
 The first decision the user will have to make is the path to follow. Here, two paths will be presented to us: the path of the snake or the path of the dragon. Depending on the choice, the user will face different challenges.
-3- The Dragon’s Challenge:
+
+![First Challenge](/media/first_challenge.png)
+
+**3- The Dragon’s Challenge:**
 If we choose the path of the dragon, we will encounter another decision to make. Whether to take the shield or, on the contrary, leave it. The dragon will awaken whether we take the shield or not, so if we leave it on the wall, the game will end.
+
+![Dragon Challenge](/media/dragon-challenge.png)
 
 **4- The Jester Challenge:**
 If we successfully pass the Dragon’s Challenge, the new challenge the user will face is the “Jester”. The jester will offer us assistance with the next challenge only if we play a game of chance. In this case, the jester challenges us to play 'Rock, Paper, Scissors'. In case of losing, the game will not end, but we will not receive the clue to pass the next challenge.
 
+![Jester Challenge](/media/jester-challenge.png)
+
 **5- The Numbered Door Challenge:**
 Once we have left the jester behind, we will encounter a new choice of doors, this time labeled as 1 and 2. If we manage to defeat the jester beforehand, we will have no difficulty in knowing which one will lead us to the next challenge, as one of the two contains a deadly trap.
+
+![Numbered Doors Challenge](/media/door-challenge.png)
 
 If we choose wisely, another decision lies ahead of us: to choose whether to go up the stairs or down them. Just like in the previous door choice, one of the paths leads to a deadly trap.
 
 **6- The Even Odd Challenge:**
 If we manage to outsmart death twice in a row, the labyrinth will lead us to another character in the story. A kind of guardian-executioner who will urge us to play 'odds or evens.' This way, chance will determine whether we continue searching for the exit or, on the contrary, end the game.
 
+![Even Odd](/media/even-odd.png)
+
 **7- The Last Challenge:**
 If the user manages to defeat the guardian, they will face the final challenge. In it, we find ourselves in a room with an iron door, and we must open that door to exit the maze. We will be given 5 keys for this task. Only one of them unlocks the door, and we have 2 attempts to open it.
+
+![Key Challenge](/media/last-challenge.png)
 
 **8 -The Snake Challenge:**
 In the oder hand, if you decide to open the Snake’s door, we will have to make up our mind and decide if we take the sword hanging on the wall to fight the snakes on that room or if we decide to run and leave the sword behind. This decision will be capital to keep alive in the labyrinth.
 
+![Snake Chalenge](/media/snake.png)
+
 **9- The Magician Challenge:**
 If we still alive another challenge will be in front of us. The caracter of a Magician interacts with the user if the user wants to. In this case, the magician will request again the user’s name and then will invite us to play a game with a huge reward. We will have to throw a dice and depending on our score the user will, either end up at the dragon’s room or facing the last challenge. If the user’s option is to take the door instead interacting with the Magician, this door will bring him to another room full of snakes and the game will finish.
 
+![Magician Challenge](/media/magician-challenge.png)
+
 ### Future Features:
-...
-...
+
+I was thinking about implementing new thigs to the game. A new path with new challenges and characters, would make the game a bit more complicated and therefor funnier.
+
+Also i was thinking about implementig a new functionality to the _ENTER_ key, since i added the _progressive print function_, i think it would be great that if the user doesn't want to wait for the strings to be printed, a good functinality would be to give the optio of printing the whole string if the user press _ENTER_ while the statement is getting printed. I think this functionality would increase the quality of the user's experience.
+
+New challenges like, _"The Hangman"_ or _"Guessing a number"_ would be also implemented in the game.
+
+I also would like to add a _timer_ in order to make it a bit more challenging. To set a timer for 3 or 4 minutes and challenge the user to complete the labyrinth before time runs out. It could be implemented as _"optional"_, leving this choice to the user.
+
+Along with the addition of the timer, it would also be interesting to gather all those data and create a _Leaderboard_ to see which user has completed the maze in the shortest possible time.
 
 ## DATA MODEL:
 ..
@@ -97,5 +124,3 @@ The project was manueally tested by doing:
 - **PEP8**
 No errors were returned from Pep8online.com
 
-
-[def]: /media/try-except%20statement.png
