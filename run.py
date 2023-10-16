@@ -44,10 +44,11 @@ def press_enter_to_continue(message="Press ENTER to continue..."):
             if user_input == "":
                 return
             else:
-                print(f"{Fore.YELLOW}\nPlease press only ENTER.")
+                print(f"{Fore.YELLOW}\nPlease press only ENTER."
+                      f"{Style.RESET_ALL}")
         except KeyboardInterrupt:
-            print(f"\nPlease press only ENTER.{Style.RESET_ALL}")
-
+            print(f"{Fore.YELLOW}\nPlease press only ENTER.{Style.RESET_ALL}")
+        
 
 def intro():  # Add introduction function
     """
@@ -60,7 +61,7 @@ def intro():  # Add introduction function
         str: The name entered by the user.
     """
     print("*" * 124)
-    result = text2art("\nINSIDE THE LABYRINTH")
+    result = text2art("\nINSIDE\nTHE\nLABYRINTH")
     print(result)
     print("*" * 124)
     progressive_print(
