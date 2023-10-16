@@ -4,6 +4,8 @@
 
 The User has to escape from a virtual labyrinth, in the search for the exit, the user will interact with the computer, which will put the user to the test through different challenges, including decision-making and games of chance.
 
+[Live Version of the project]()
+
 [SCREENSHOT LIVE VERSION]
 [MOCK UP]
 
@@ -94,8 +96,19 @@ I also would like to add a _timer_ in order to make it a bit more challenging. T
 Along with the addition of the timer, it would also be interesting to gather all those data and create a _Leaderboard_ to see which user has completed the maze in the shortest possible time.
 
 ## DATA MODEL:
-..
-..
+
+### User:
+- The game starts by asking the user to enter their name.
+### Doors:
+- At the beginning of the game, the user must choose between two doors: one with a snake and another with a dragon. This choice affects the game's path.
+### User Choices:
+- Throughout the game, the user makes decisions such as whether they are ready to play, which door to open, whether to take a shield, etc.
+### Outcomes of User Choices:
+- Depending on the user's choices, they will face different challenges, such as facing snakes, a dragon, a jester, a magician, etc.
+### Challenges:
+- Challenges are represented by functions like **snakes_challenge**, **dragons_challenge**, **jester_challenge**, **even_odd_challenge**, **numbered_doors_challenge**, etc.
+### Game States:
+- Game states include whether the user won or lost the game, if they are trapped in a room, etc.
 
 ## TECHNOLOGIES USED:
 
@@ -112,6 +125,8 @@ Along with the addition of the timer, it would also be interesting to gather all
 - [Random Library](https://docs.python.org/3/library/random.html) - To add a random number in some challenges.
 - [Time Library](https://docs.python.org/3/library/time.html) - Used to create the _progressive print_ letter by letter.
 - [Black library](https://pypi.org/project/black/) - To format the code.
+- [W3SChools](https://www.w3schools.com/python/default.asp) - Was a good help to develope my code
+- [ChatGPT](https://chat.openai.com/) - Helped me rephrasing part of the story and also was a great tool to understand some concepts.
 
 ## TESTING:
 
@@ -128,9 +143,9 @@ The project was manually tested by doing:
 - **PEP8**
 No errors were returned from Pep8online.com
 
-## MANUAL VALIDATION:
+### MANUAL VALIDATION:
 
-- INTRODUCTION:
+- **INTRODUCTION:**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -139,7 +154,7 @@ No errors were returned from Pep8online.com
 | Readiness Check "no" | Prompt "Are you ready? (yes/no) displayed | Entered "no" | Definitely, you're not the right person for this. | Pass
 | Readiness Check "Invalid Input" | Prompt "Are you ready? (yes/no) displayed | Entered "Invalid Input" | Invalid Choice Amigo | Pass
 
-- FIRST CHALLENGE:
+- **FIRST CHALLENGE:**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -147,7 +162,7 @@ No errors were returned from Pep8online.com
 | Door Choice (Dragon) | Prompt "Which door do you want to open? (snake/dragon):" displayed | Entered "dragon" for test case. | Get in the Snake's room | Pass |
 | Door Choice | Prompt "Which door do you want to open? (snake/dragon):" displayed | Entered Ivalid Input. | Invalid Choice Amigo | Pass |
 
-- SHIELD (DRAGON'S PATH):
+- **SHIELD (DRAGON'S PATH):**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -155,7 +170,7 @@ Shield Choice (Yes) | Prompt "Do you want to take the shield? (yes/no):" display
 | Shield Choice (No) | Prompt "Do you want to take the shield? (yes/no):" displayed | Entered "no" for test case. | GAME OVER | Pass |
 | Shield Choice (Invalid Input) | Prompt "Do you want to take the shield? (yes/no):" displayed | Entered "Invalid Inpput" for test case. | Invalid Choice Amigo | Pass |
 
-- THE JESTER CHALLENGE (DRAGON'S PATH):
+- **THE JESTER CHALLENGE (DRAGON'S PATH):**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -164,7 +179,7 @@ Shield Choice (Yes) | Prompt "Do you want to take the shield? (yes/no):" display
 | Rock, Paper, Scissors Game (Scissors) | Prompt "Choose: rock, paper, or scissors:" displayed | Entered "scissors" for test case. | You choose scissors | Pass |
 | Rock, Paper, Scissors Game (Invalid Input) | Prompt "Choose: rock, paper, or scissors:" displayed | Entered "Invalid Input" for test case. | Invalid Choice Amigo | Pass |
 
-- NUMBERED DOORS CHALLENGE (DRAGON'S PATH)
+- **NUMBERED DOORS CHALLENGE (DRAGON'S PATH):**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -172,7 +187,7 @@ Shield Choice (Yes) | Prompt "Do you want to take the shield? (yes/no):" display
 | Choosing Door 2 | Prompt "Which door do you want to open?([1]/[2]):" displayed | Entered 2 for test case. | Next Challenge (up/down) | Pass |
 | Choosing Door "Invalid Input" | Prompt "Which door do you want to open?([1]/[2]):" displayed | Entered "Invalid Input" for test case. case. | Invalid Choice Amigo | Pass |
 
-- GOING UPSTAIRS/DOWNSTAIRS (DRAGON'S PATH)
+- **GOING UPSTAIRS/DOWNSTAIRS (DRAGON'S PATH):**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -180,7 +195,7 @@ Shield Choice (Yes) | Prompt "Do you want to take the shield? (yes/no):" display
 | Choosing to Go (Down) | Prompt "Which one are you taking? (up/down):" displayed | Entered "down" for test case. | GAME OVER | Pass |
 | Choosing to Go (Invalid Input) | Prompt "Which one are you taking? (up/down):" displayed | Entered "Invalid Input" for test case. | Invalid Choice Amigo | Pass |
 
-- EVEN OR ODD CHALLENGE (DRAGON'S PATH):
+- **EVEN OR ODD CHALLENGE (DRAGON'S PATH):**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -189,7 +204,7 @@ Shield Choice (Yes) | Prompt "Do you want to take the shield? (yes/no):" display
 | Even or Odd Game 'Invalid Input' | Prompt "Choose 'even' or 'odd':" displayed | Entered "Invalid Input" for test case.  | Invalid Choice Amigo | Pass |
 | Player 1 chooses a number | Prompt "Player 1, choose a number (1-5):" displayed | Entered valid number for test case.   | Player 1 shows "?" fingers. (The number of fingers will depend on the number introduced previously) | Pass |
 
-- THE LAST CHALLENGE:
+- **THE LAST CHALLENGE:**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -197,7 +212,7 @@ Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" d
 Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" displayed | Entered ('key1', 'key2', 'key4', 'key5',) for test case. | GAME OVER | Pass |
 Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" displayed | Entered (Invalid Input) for test case. | Invalid Choice Amigo | Pass |
 
-- THE SWORD (SNAKE'S PATH):
+- **THE SWORD (SNAKE'S PATH):**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -205,7 +220,7 @@ Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" d
 | Snake's Room | Prompt "Fight or Run?: " displayed | Entered "run" for test case. | You save your life! | Pass |
 | Snake's Room | Prompt "Fight or Run?: " displayed | Entered "Invalid Input" for test case. | Invalid Choice Amigo | Pass |
 
-- ENCOUNTER WITH THE MAGICIAN (SNAKE'S PATH):
+- **ENCOUNTER WITH THE MAGICIAN (SNAKE'S PATH):**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -213,14 +228,14 @@ Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" d
 | Player decides to open door | Prompt "Talk to the magician or open the door?: " displayed | Entered valid choice (e.g., 'door') for test case. | Challenge: Choose left or right | Pass |
 | Player introduces Invalid Input | Prompt "Talk to the magician or open the door?: " displayed | Entered valid Invalid input for test case. | Invalid Choice Amigo | Pass |
 
-- TALK WITH THE MAGICIAN (SNAKE'S PATH):
+- **TALK WITH THE MAGICIAN (SNAKE'S PATH):**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
 | Name matches | Prompt "Who are you young boy?', asks the magician" displayed | Entered matching name provided at the beginning of the game.| Play or Pass Decision | Pass |
 | Name does not match | Prompt "Who are you young boy?', asks the magician" displayed | Entered (jiji) different name than the one provided at the beginning. | Sorry, but jiji doesn't matchyour original name. Try again. | Pass |
 
-- DECISION TO PLAY OR PASS (SNAKE'S PATH):
+- **DECISION TO PLAY OR PASS (SNAKE'S PATH):**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -229,7 +244,7 @@ Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" d
 | We have to decide if we play with the Magician | Invalid Input | Entered Pass | Invalid Choice Amigo | Pass |
 
 
-- THE MAGICIAN CHALLENGE / THE DICE (SNAKE'S PATH):
+- **THE MAGICIAN CHALLENGE / THE DICE (SNAKE'S PATH):**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
@@ -238,17 +253,13 @@ Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" d
 | ENTER to roll the dice | Prompt "Press ENTER to roll the dice" | Pressed Enter | Dice Result | Pass |
 | ENTER to roll the dice | Prompt "Press ENTER to roll the dice" | Pressed Invalid Input before Enter | Please press only ENTER. | Pass |
 
-- CHOOSE LEFT PATH OR RIGHT PATH (SNAKE'S PATH):
+- **CHOOSE LEFT PATH OR RIGHT PATH (SNAKE'S PATH):**
 
 | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
 | Player chooses left | Prompt "Where do you want to go?(left/right): " displayed | Entered valid choice (e.g., 'left') for test case. | Numbered Door Challenge | Pass |
 | Player chooses right | Prompt "Where do you want to go?(left/right): " displayed | Entered valid choice (e.g., 'right') for test case. | GAME OVER | Pass |
 | Player introduces Invalid Input | Prompt "Where do you want to go?(left/right): " displayed | Entered Invalid choice (e.g., 'right') for test case. | Invalid Choice Amigo | Pass |
-
-
-
-
 
 ### BUGS:
 
@@ -274,11 +285,24 @@ Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" d
 
 - I also wanted to mention that on sunday while writing my code i run out of Gitpod hours, being sunday, it was imposible for me to get in contact with someone in order to get more so i decided to clone the proyect on my computer and keep working on my local enviroment.
 
-
 ## DEPLOYMENT:
-...
-...
+
+This project was deployed with _Heroku_
+
+- **STEPS FOR DEPLOYMENT:**
+- _Fork or clone this repository_
+- _Create a new Heroku App_
+- _Set the buidbacks to Python and Node JS in that order_
+- _Link the Heroku app to the repository_
+- _Click on **Deploy**_
 
 ## CREDITS:
-...
-...
+
+- I took inspiration for creating my Readme from the one added to the Love Sandwiches project. I also found very helpful the one written by Kera Cudmore (https://github.com/kera-cudmore/TheQuizArms) for her JavaScript project at Code Institute.
+
+- The deployment method was also taken from the _Love Sandwiches project_.
+
+- I drew inspiration for writing the game's story from those _Choose-your-own-adventure_ books I used to read when I was a child.
+
+- On freeCodeCamp.org, I found a video showcasing 12 Beginner Python Projects.
+[Youtube](https://www.youtube.com/watch?v=8ext9G7xspg)

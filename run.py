@@ -62,10 +62,10 @@ def intro():  # Add introduction function
     Returns:
         str: The name entered by the user.
     """
-    print("*" * 124)
+    print("*" * 160)
     result = text2art("\nINSIDE\nTHE\nLABYRINTH")
     print(result)
-    print("*" * 124)
+    print("*" * 160)
     progressive_print(
         "\n...you just wake up,\n\n"
         "its dark in here and you realize that you are inside of a Labyrinth.."
