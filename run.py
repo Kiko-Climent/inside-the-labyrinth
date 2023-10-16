@@ -47,8 +47,8 @@ def press_enter_to_continue(message="Press ENTER to continue..."):
                 print(f"{Fore.YELLOW}\nPlease press only ENTER."
                       f"{Style.RESET_ALL}")
         except KeyboardInterrupt:
-            print(f"{Fore.YELLOW}\nPlease press only ENTER.{Style.RESET_ALL}")
-        
+            print(f"{Fore.YELLOW}\nPlease press only ENTER.{Style.RESET_ALL}")     
+
 
 def intro():  # Add introduction function
     """
@@ -211,7 +211,7 @@ def jester_challenge():
     press_enter_to_continue(message="Press ENTER to listen the Jester")
     progressive_print(
         f"{Fore.MAGENTA}\n'Hi,well..my name doesnt matter "
-        f"and the reason i'm here..\nthat's a long story' "
+        f"and the reason i'm here?..\nthat's a long story'"
         f"{Style.RESET_ALL}, says the Jester"
     )
     progressive_print(f"{Fore.MAGENTA}\n'I guess you are looking how"

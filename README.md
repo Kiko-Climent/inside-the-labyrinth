@@ -19,6 +19,17 @@ The user will also face some **Games of chance**, such as 'Even or Odd' or 'Rock
 
 If the user achieves to pass all the challenges will win the game, and will set free from the Labyrinth.
 
+## DESIGN:
+
+I used an **_ASCII art_** library to create the main header. To add a bit more dynamism to the story, I also used the **_Colorama_** library to change the color of some texts.
+
+- **WHITE:** Used for narrating the story.
+- **BLUE:** It is used in the game for selecting options in the different challenges that the user faces. 
+- **GREEN:** Used to emphasize when the user has successfully overcome a trial.
+- **RED:** Used when the user fails to defeat a challenge.
+- **MAGENTA:** Used when there is an interaction between the user and a character in the labyrinth.
+- **YELLOW:** Finally, in yellow, we find the warnings, such as when the user enters an invalid field.
+
 ## FEATURES:
 
 ### Existing Features:
@@ -86,15 +97,112 @@ Along with the addition of the timer, it would also be interesting to gather all
 ..
 ..
 
+## TECHNOLOGIES USED:
+
+**The programming language** used for the development of _"Inside the Labyrinth"_ has been **_Python_**.
+
+### PROGRAMS AND LYBRARIES USED: ###
+
+- [Gitpod]()
+- [Visual Studio Code]()
+- [Github]()
+- [Heroku]()
+- [Colorama Library]()
+- [Art Library]()
+- [Random Library]()
+- [Time Library]()
+- [Black library]()
+
 ## TESTING:
 
-The project was manueally tested by doing:
-- The code was passe through **_PEP8_** and confirmed there are no problems.
+The project was manually tested by doing:
+- The code was passed through **_PEP8_** and confirmed there are no problems.
 
 ![PEP8](/media/pep8-Validator.png)
 
 - Some valid inputs were giving: I need it to _add docstrings_ to some of the functions of the game. I also had many _lines that were too long_, more than 79 characters. Encounter also that some _blanklines contained whitespaces._
 - Tested in the _Code Institute Heroku terminal_ and in my local terminal.
+
+### VALIDATOR TESTINGS:
+
+- **PEP8**
+No errors were returned from Pep8online.com
+
+## MANUAL VALIDATION:
+
+- INTRODUCTION:
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| User's Name Request | Accept User's Name (letters/numbers) | Introduced a Name | Username Accepted / Welcome message | Pass
+| Readiness Check "yes" | Prompt "Are you ready? (yes/no) displayed | Entered "yes" | GREAT! Let's start the Adventure. | Pass
+| Readiness Check "no" | Prompt "Are you ready? (yes/no) displayed | Entered "no" | Definitely, you're not the right person for this. | Pass
+| Readiness Check "Invalid Input" | Prompt "Are you ready? (yes/no) displayed | Entered "Invalid Input" | Invalid Choice Amigo | Pass
+
+- FIRST CHALLENGE:
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Door Choice (Snake) | Prompt "Which door do you want to open? (snake/dragon):" displayed | Entered "snake" for test case. | Get in the Dragon's room | Pass |
+| Door Choice (Dragon) | Prompt "Which door do you want to open? (snake/dragon):" displayed | Entered "dragon" for test case. | Get in the Snake's room | Pass |
+| Door Choice | Prompt "Which door do you want to open? (snake/dragon):" displayed | Entered Ivalid Input. | Invalid Choice Amigo | Pass |
+
+- SHIELD (DRAGON'S PATH):
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+Shield Choice (Yes) | Prompt "Do you want to take the shield? (yes/no):" displayed | Entered "yes" for test case. | CONGRATULATIONS!, you sa | Pass |
+| Shield Choice (No) | Prompt "Do you want to take the shield? (yes/no):" displayed | Entered "no" for test case. | GAME OVER | Pass |
+| Shield Choice (Invalid Input) | Prompt "Do you want to take the shield? (yes/no):" displayed | Entered "Invalid Inpput" for test case. | Invalid Choice Amigo | Pass |
+
+- THE JESTER CHALLENGE (DRAGON'S PATH):
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Rock, Paper, Scissors Game (Rock) | Prompt "Choose: rock, paper, or scissors:" displayed | Entered "rock" for test case. | You choose Rock | Pass |
+| Rock, Paper, Scissors Game (Paper)    | Prompt "Choose: rock, paper, or scissors:" displayed | Entered "paper" for test case. | You choose Paper | Pass |
+| Rock, Paper, Scissors Game (Scissors) | Prompt "Choose: rock, paper, or scissors:" displayed | Entered "scissors" for test case. | You choose scissors | Pass |
+| Rock, Paper, Scissors Game (Invalid Input) | Prompt "Choose: rock, paper, or scissors:" displayed | Entered "Invalid Input" for test case. | Invalid Choice Amigo | Pass |
+
+- NUMBERED DOORS CHALLENGE (DRAGON'S PATH)
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Choosing Door 1 | Prompt "Which door do you want to open?([1]/[2]):" displayed | Entered 1 for test case. | GAME OVER | Pass |
+| Choosing Door 2 | Prompt "Which door do you want to open?([1]/[2]):" displayed | Entered 2 for test case. | Next Challenge (up/down) | Pass |
+| Choosing Door "Invalid Input" | Prompt "Which door do you want to open?([1]/[2]):" displayed | Entered "Invalid Input" for test case. case. | Invalid Choice Amigo | Pass |
+
+- GOING UPSTAIRS/DOWNSTAIRS (DRAGON'S PATH)
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Choosing to Go (Up) | Prompt "Which one are you taking? (up/down):" displayed | Entered "up" for test case. | Next Challenge | Pass |
+| Choosing to Go (Down) | Prompt "Which one are you taking? (up/down):" displayed | Entered "down" for test case. | GAME OVER | Pass |
+| Choosing to Go (Invalid Input) | Prompt "Which one are you taking? (up/down):" displayed | Entered "Invalid Input" for test case. | Invalid Choice Amigo | Pass |
+
+- EVEN OR ODD CHALLENGE (DRAGON'S PATH):
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+| Even or Odd Game 'even'| Prompt "Choose 'even' or 'odd':" displayed | Entered "even" for test case. | You've chose 'even' | Pass |
+| Even or Odd Game 'odd' | Prompt "Choose 'even' or 'odd':" displayed | Entered "odd" for test case.  | You've chose 'odd' | Pass |
+| Even or Odd Game 'Invalid Input' | Prompt "Choose 'even' or 'odd':" displayed | Entered "Invalid Input" for test case.  | Invalid Choice Amigo | Pass |
+| Player 1 chooses a number | Prompt "Player 1, choose a number (1-5):" displayed | Entered valid number for test case.   | Player 1 shows "?" fingers. (The number of fingers will depend on the number introduced previously) | Pass |
+
+- THE LAST CHALLENGE:
+
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" displayed | Entered valid key ('key3') for test case. | YOU WIN! | Pass |
+Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" displayed | Entered ('key1', 'key2', 'key4', 'key5',) for test case. | GAME OVER | Pass |
+Player chooses a key | Prompt "Choose 'key1', 'key2', 'key3', 'key4', 'key5':" displayed | Entered (Invalid Input) for test case. | Invalid Choice Amigo | Pass |
+
+- THE SWORD (SANKE'S PATH):
+| Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
+| --- | --- | --- | --- | --- |
+Shield Choice (Yes) | Prompt "Do you want to take the shield? (yes/no):" displayed | Entered "yes" for test case. | CONGRATULATIONS!, you sa | Pass |
+| Shield Choice (No) | Prompt "Do you want to take the shield? (yes/no):" displayed | Entered "no" for test case. | GAME OVER | Pass |
+| Shield Choice (Invalid Input) | Prompt "Do you want to take the shield? (yes/no):" displayed | Entered "Invalid Inpput" for test case. | Invalid Choice Amigo | Pass |
 
 ### BUGS:
 
@@ -112,15 +220,19 @@ The project was manueally tested by doing:
 
 ![While Loop in case of a Tie](/media/while-loop.png)
 
-- As mentioned before many _line is too long_ were encuntered when passsing the code through the _PEP8 Validator_,in order to fix thati had to either refactor my code or convert strings that were too long and something suitable for the max amount of 79 characters.
+- As mentioned before many _"line is too long"_ were encuntered when passsing the code through the _PEP8 Validator_,in order to fix that i had to either refactor my code or convert strings that were too long to something suitable for the max amount of 79 characters.
 
 ![Docstrings](/media/docstrings.png)
 
 - _PEP8 Validator_ also adviced me that some of the functions had no _Docstrings_,i fixed this by adding them and explining the functionality of those functions.
 
-- I also wanted to mention that on sunday while writing my code i run out of Gitpod hours, being sunday it was imposible for me to get in contact with someone in order to get more so i decided to clone the proyect on my computer and keep working local.
+- I also wanted to mention that on sunday while writing my code i run out of Gitpod hours, being sunday, it was imposible for me to get in contact with someone in order to get more so i decided to clone the proyect on my computer and keep working on my local enviroment.
 
-### VALIDATOR TESTINGS:
-- **PEP8**
-No errors were returned from Pep8online.com
 
+## DEPLOYMENT:
+...
+...
+
+## CREDITS:
+...
+...
